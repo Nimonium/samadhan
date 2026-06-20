@@ -1,5 +1,3 @@
----
-
 # Samadhan — CM Grievance & Complaint Management Dashboard
 
 > A civic technology platform built for the Office of the Chief Minister, Government of Delhi. Samadhan enables end-to-end grievance management with a structural focus on preventing false closures, ensuring accountability, and providing the CM with real-time visibility across all districts.
