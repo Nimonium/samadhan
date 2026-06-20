@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+    <title>Samadhan - Nearby &amp; On the Go</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-lowest": "#ffffff",
+                        "secondary": "#0058be",
+                        "on-primary": "#ffffff",
+                        "surface-container-high": "#e8e7f1",
+                        "secondary-container": "#2170e4",
+                        "tertiary-container": "#872d00",
+                        "secondary-fixed-dim": "#adc6ff",
+                        "inverse-primary": "#b8c4ff",
+                        "surface-container": "#eeedf7",
+                        "primary": "#00288e",
+                        "on-error": "#ffffff",
+                        "on-secondary-fixed-variant": "#004395",
+                        "outline-variant": "#c4c5d5",
+                        "error-container": "#ffdad6",
+                        "error": "#ba1a1a",
+                        "surface-dim": "#dad9e3",
+                        "on-background": "#1a1b22",
+                        "surface": "#fbf8ff",
+                        "on-surface": "#1a1b22",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#802a00",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-container": "#ffa583",
+                        "primary-fixed": "#dde1ff",
+                        "tertiary": "#611e00",
+                        "surface-container-low": "#f4f2fc",
+                        "inverse-surface": "#2f3037",
+                        "on-primary-container": "#a8b8ff",
+                        "surface-bright": "#fbf8ff",
+                        "on-primary-fixed-variant": "#173bab",
+                        "tertiary-fixed": "#ffdbce",
+                        "on-tertiary-fixed": "#380d00",
+                        "surface-container-highest": "#e3e1eb",
+                        "on-secondary-container": "#fefcff",
+                        "primary-fixed-dim": "#b8c4ff",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-fixed-dim": "#ffb59a",
+                        "inverse-on-surface": "#f1f0fa",
+                        "surface-tint": "#3755c3",
+                        "secondary-fixed": "#d8e2ff",
+                        "primary-container": "#1e40af",
+                        "on-surface-variant": "#444653",
+                        "outline": "#757684",
+                        "on-secondary-fixed": "#001a42",
+                        "on-primary-fixed": "#001453",
+                        "surface-variant": "#e3e1eb",
+                        "background": "#fbf8ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "margin-desktop": "64px",
+                        "xs": "4px",
+                        "gutter": "24px",
+                        "sm": "8px",
+                        "xl": "32px",
+                        "md": "16px",
+                        "lg": "24px",
+                        "container-max": "1200px",
+                        "base": "4px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "headline-xl": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "500" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "500" }],
+                        "label-md": ["14px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "500" }],
+                        "headline-xl": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "500" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "500" }]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .pulse-location {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: .5;
+                transform: scale(1.1);
+            }
+        }
+
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .view-transition {
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .hidden-view {
+            display: none;
+            opacity: 0;
+            transform: translateY(10px);
+        }
+    </style>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+
+<body class="bg-background text-on-background font-body-md min-h-screen pb-32">
+    <!-- Top Navigation Bar (Shared Component Strategy) -->
+    <header
+        class="fixed top-0 w-full z-50 flex items-center justify-between px-margin-mobile h-16 w-full bg-surface border-b border-outline-variant transition-colors duration-200">
+        <div class="flex items-center gap-3">
+            <span class="material-symbols-outlined text-primary"
+                style="font-variation-settings: 'FILL' 1;">component_exchange</span>
+            <h1 class="font-headline-md text-headline-md font-bold text-primary">Samadhan</h1>
+        </div>
+        <div class="flex items-center gap-2">
+            <button class="p-2 rounded-full hover:bg-surface-container-low transition-colors">
+                <span class="material-symbols-outlined text-on-surface-variant">search</span>
+            </button>
+            <div
+                class="w-8 h-8 rounded-full bg-secondary-container flex items-center justify-center text-on-primary text-[12px] font-bold">
+                CM
+            </div>
+        </div>
+    </header>
+    <!-- Content Wrapper -->
+    <main class="pt-20 px-margin-mobile space-y-6">
+        <!-- Live Location Header -->
+        <div class="flex flex-col gap-1">
+            <div
+                class="inline-flex items-center gap-2 px-3 py-1.5 bg-primary-fixed text-on-primary-fixed rounded-full w-fit">
+                <span class="material-symbols-outlined text-[18px] pulse-location"
+                    style="font-variation-settings: 'FILL' 1;">location_on</span>
+                <span class="font-label-md text-label-md">You are near: <span class="font-bold">Connaught
+                        Place</span></span>
+            </div>
+            <h2 class="font-headline-lg-mobile text-headline-lg-mobile mt-2">Field Operations</h2>
+        </div>
+        <!-- Navigation Toggles (Segmented Control) -->
+        <div class="bg-surface-container-high p-1 rounded-xl flex items-center w-full sticky top-20 z-40 shadow-sm">
+            <button
+                class="flex-1 py-2 text-center rounded-lg font-label-md transition-all duration-200 bg-surface text-primary shadow-sm"
+                id="toggle-nearby" onclick="switchView('nearby')">
+                Nearby
+            </button>
+            <button
+                class="flex-1 py-2 text-center rounded-lg font-label-md transition-all duration-200 text-on-surface-variant"
+                id="toggle-critical" onclick="switchView('critical')">
+                Critical
+            </button>
+            <button
+                class="flex-1 py-2 text-center rounded-lg font-label-md transition-all duration-200 text-on-surface-variant"
+                id="toggle-log" onclick="switchView('log')">
+                Visit Log
+            </button>
+        </div>
+        <!-- MAIN CONTENT: NEARBY VIEW -->
+        <div class="view-transition space-y-4" id="view-nearby">
+            <!-- Nearby Grievances Cards -->
+            <div class="flex items-center justify-between">
+                <p class="font-label-md text-on-surface-variant">8 Issues in your vicinity</p>
+                <button class="text-primary font-label-md flex items-center gap-1">
+                    Sort <span class="material-symbols-outlined text-[16px]">expand_more</span>
+                </button>
+            </div>
+            <!-- Card 1 -->
+            <div
+                class="bg-surface border border-outline-variant p-lg rounded-xl space-y-4 hover:border-primary transition-colors cursor-pointer group">
+                <div class="flex justify-between items-start">
+                    <div class="flex flex-col gap-1">
+                        <span
+                            class="px-2 py-0.5 bg-error-container text-on-error-container text-[10px] font-bold rounded uppercase tracking-wider w-fit">Critical</span>
+                        <h3
+                            class="font-headline-sm text-headline-sm leading-tight group-hover:text-primary transition-colors">
+                            Sewerage overflow at Block B, Inner Circle</h3>
+                    </div>
+                    <div class="flex flex-col items-end">
+                        <span class="font-label-md font-bold text-primary">0.4 km</span>
+                        <span class="text-[10px] text-on-surface-variant">Est. 5 min walk</span>
+                    </div>
+                </div>
+                <p class="text-on-surface-variant font-body-sm line-clamp-2">Major leakage reported by shop owners
+                    association. Potential health hazard and traffic obstruction in high-footfall area.</p>
+                <div class="flex items-center gap-4 pt-2">
+                    <button
+                        class="flex-1 bg-primary text-on-primary py-3 rounded-lg font-label-md text-center active:scale-95 transition-transform">
+                        View Details
+                    </button>
+                    <button
+                        class="p-3 border border-outline-variant rounded-lg text-primary active:bg-surface-container">
+                        <span class="material-symbols-outlined">directions</span>
+                    </button>
+                </div>
+            </div>
+            <!-- Card 2 -->
+            <div class="bg-surface border border-outline-variant p-lg rounded-xl space-y-4">
+                <div class="flex justify-between items-start">
+                    <div class="flex flex-col gap-1">
+                        <span
+                            class="px-2 py-0.5 bg-surface-container-highest text-on-surface-variant text-[10px] font-bold rounded uppercase tracking-wider w-fit">Normal</span>
+                        <h3 class="font-headline-sm text-headline-sm leading-tight">Damaged Pavement Tiles near Metro
+                            Gate 4</h3>
+                    </div>
+                    <div class="flex flex-col items-end">
+                        <span class="font-label-md font-bold text-primary">0.6 km</span>
+                        <span class="text-[10px] text-on-surface-variant">Est. 8 min walk</span>
+                    </div>
+                </div>
+                <p class="text-on-surface-variant font-body-sm line-clamp-2">Loose and broken tiles causing tripping
+                    hazards for commuters. Reported 2 days ago.</p>
+                <div class="flex items-center gap-4 pt-2">
+                    <button class="flex-1 bg-primary text-on-primary py-3 rounded-lg font-label-md text-center">
+                        View Details
+                    </button>
+                    <button class="p-3 border border-outline-variant rounded-lg text-primary">
+                        <span class="material-symbols-outlined">directions</span>
+                    </button>
+                </div>
+            </div>
+            <!-- Card 3 -->
+            <div class="bg-surface border border-outline-variant p-lg rounded-xl space-y-4">
+                <div class="flex justify-between items-start">
+                    <div class="flex flex-col gap-1">
+                        <span
+                            class="px-2 py-0.5 bg-orange-100 text-orange-900 text-[10px] font-bold rounded uppercase tracking-wider w-fit">High
+                            Priority</span>
+                        <h3 class="font-headline-sm text-headline-sm leading-tight">Non-functional Streetlights in Block
+                            F</h3>
+                    </div>
+                    <div class="flex flex-col items-end">
+                        <span class="font-label-md font-bold text-primary">1.2 km</span>
+                        <span class="text-[10px] text-on-surface-variant">Est. 4 min drive</span>
+                    </div>
+                </div>
+                <p class="text-on-surface-variant font-body-sm line-clamp-2">Multiple poles dark between F-12 and F-45.
+                    Security concerns raised by local residents during night hours.</p>
+                <div class="flex items-center gap-4 pt-2">
+                    <button class="flex-1 bg-primary text-on-primary py-3 rounded-lg font-label-md text-center">
+                        View Details
+                    </button>
+                    <button class="p-3 border border-outline-variant rounded-lg text-primary">
+                        <span class="material-symbols-outlined">directions</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- MAIN CONTENT: VISIT LOG VIEW -->
+        <div class="view-transition hidden-view space-y-6" id="view-log">
+            <div class="flex items-center justify-between">
+                <p class="font-label-md text-on-surface-variant">Past 30 days history</p>
+                <button class="p-2 border border-outline-variant rounded-lg">
+                    <span class="material-symbols-outlined text-[18px]">calendar_month</span>
+                </button>
+            </div>
+            <!-- Vertical Timeline -->
+            <div
+                class="relative pl-8 space-y-8 before:content-[''] before:absolute before:left-3 before:top-2 before:bottom-2 before:w-0.5 before:bg-outline-variant">
+                <!-- Log Item 1 -->
+                <div class="relative">
+                    <div
+                        class="absolute -left-8 top-1 w-6 h-6 rounded-full bg-primary flex items-center justify-center border-4 border-background z-10">
+                        <div class="w-1.5 h-1.5 rounded-full bg-white"></div>
+                    </div>
+                    <div class="bg-surface p-md rounded-xl border border-outline-variant">
+                        <div class="flex justify-between items-start mb-2">
+                            <div>
+                                <h4 class="font-bold text-body-lg">Rohini Sector 7</h4>
+                                <p class="text-on-surface-variant font-label-md">24 Oct 2023 • 10:30 AM</p>
+                            </div>
+                            <span
+                                class="bg-secondary-container text-on-primary text-[10px] px-2 py-1 rounded-full font-bold">24
+                                REVIEWS</span>
+                        </div>
+                        <p class="text-on-surface-variant font-body-sm">Focused on primary school infrastructure and
+                            waste management collection points. 18 issues resolved on-spot.</p>
+                    </div>
+                </div>
+                <!-- Log Item 2 -->
+                <div class="relative">
+                    <div
+                        class="absolute -left-8 top-1 w-6 h-6 rounded-full bg-outline-variant flex items-center justify-center border-4 border-background z-10">
+                        <div class="w-1.5 h-1.5 rounded-full bg-white"></div>
+                    </div>
+                    <div class="bg-surface p-md rounded-xl border border-outline-variant">
+                        <div class="flex justify-between items-start mb-2">
+                            <div>
+                                <h4 class="font-bold text-body-lg">Dwarka Mor Metro</h4>
+                                <p class="text-on-surface-variant font-label-md">21 Oct 2023 • 04:15 PM</p>
+                            </div>
+                            <span
+                                class="bg-secondary-container text-on-primary text-[10px] px-2 py-1 rounded-full font-bold">12
+                                REVIEWS</span>
+                        </div>
+                        <p class="text-on-surface-variant font-body-sm">Traffic bottleneck inspection and illegal
+                            vending zones. Directed immediate deployment of additional marshals.</p>
+                    </div>
+                </div>
+                <!-- Log Item 3 -->
+                <div class="relative">
+                    <div
+                        class="absolute -left-8 top-1 w-6 h-6 rounded-full bg-outline-variant flex items-center justify-center border-4 border-background z-10">
+                        <div class="w-1.5 h-1.5 rounded-full bg-white"></div>
+                    </div>
+                    <div class="bg-surface p-md rounded-xl border border-outline-variant">
+                        <div class="flex justify-between items-start mb-2">
+                            <div>
+                                <h4 class="font-bold text-body-lg">Lajpat Nagar Market</h4>
+                                <p class="text-on-surface-variant font-label-md">19 Oct 2023 • 09:00 AM</p>
+                            </div>
+                            <span
+                                class="bg-secondary-container text-on-primary text-[10px] px-2 py-1 rounded-full font-bold">38
+                                REVIEWS</span>
+                        </div>
+                        <p class="text-on-surface-variant font-body-sm">Deep inspection of fire safety norms and
+                            electrical wiring in old market blocks. Tasked PWD for rewire plan.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- FAB: Log this Visit -->
+    <button
+        class="fixed bottom-24 right-margin-mobile flex items-center gap-3 bg-primary text-on-primary px-6 py-4 rounded-full shadow-lg hover:shadow-xl active:scale-95 transition-all z-50 group">
+        <span class="material-symbols-outlined group-hover:rotate-12 transition-transform"
+            style="font-variation-settings: 'FILL' 1;">add_location_alt</span>
+        <span class="font-bold font-label-md">Log this Visit</span>
+    </button>
+    <!-- Bottom Navigation (Shared Component Logic) -->
+    <nav
+        class="fixed bottom-0 left-0 w-full flex justify-around items-center h-20 px-2 pb-safe bg-surface shadow-sm border-t border-outline-variant z-50">
+        <button
+            class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-container-high transition-transform duration-150 active:scale-90">
+            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">home</span>
+            <span class="font-label-md text-label-md">Home</span>
+        </button>
+        <button
+            class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-xl px-4 py-1 transition-transform duration-150 active:scale-90">
+            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">near_me</span>
+            <span class="font-label-md text-label-md">Nearby</span>
+        </button>
+        <button
+            class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-container-high transition-transform duration-150 active:scale-90 relative">
+            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">notifications</span>
+            <span class="font-label-md text-label-md">Alerts</span>
+            <div class="absolute top-1 right-6 w-2 h-2 bg-error rounded-full border-2 border-surface"></div>
+        </button>
+        <button
+            class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-container-high transition-transform duration-150 active:scale-90">
+            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">person</span>
+            <span class="font-label-md text-label-md">Profile</span>
+        </button>
+    </nav>
+    <script>
+        function switchView(view) {
+            const nearbyView = document.getElementById('view-nearby');
+            const logView = document.getElementById('view-log');
+            const btnNearby = document.getElementById('toggle-nearby');
+            const btnCritical = document.getElementById('toggle-critical');
+            const btnLog = document.getElementById('toggle-log');
+
+            const buttons = [btnNearby, btnCritical, btnLog];
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-surface', 'text-primary', 'shadow-sm');
+                btn.classList.add('text-on-surface-variant');
+            });
+
+            if (view === 'nearby' || view === 'critical') {
+                nearbyView.classList.remove('hidden-view');
+                nearbyView.classList.add('block');
+                logView.classList.add('hidden-view');
+                logView.classList.remove('block');
+
+                if (view === 'nearby') btnNearby.classList.add('bg-surface', 'text-primary', 'shadow-sm');
+                if (view === 'critical') btnCritical.classList.add('bg-surface', 'text-primary', 'shadow-sm');
+            } else if (view === 'log') {
+                logView.classList.remove('hidden-view');
+                logView.classList.add('block');
+                nearbyView.classList.add('hidden-view');
+                nearbyView.classList.remove('block');
+                btnLog.classList.add('bg-surface', 'text-primary', 'shadow-sm');
+            }
+        }
+
+        // Initialize view
+        document.addEventListener('DOMContentLoaded', () => {
+            switchView('nearby');
+        });
+    </script>
+</body>
+
+</html>

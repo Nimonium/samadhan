@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Samadhan CM Overview | Government of NCT of Delhi</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Tailwind Configuration -->
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error": "#ffffff",
+                        "surface-container-low": "#f4f2fc",
+                        "on-tertiary": "#ffffff",
+                        "surface-dim": "#dad9e3",
+                        "on-background": "#1a1b22",
+                        "primary-container": "#1e40af",
+                        "on-surface-variant": "#444653",
+                        "on-secondary-fixed": "#001a42",
+                        "tertiary-fixed": "#ffdbce",
+                        "on-tertiary-fixed-variant": "#802a00",
+                        "secondary-fixed": "#d8e2ff",
+                        "on-tertiary-container": "#ffa583",
+                        "on-secondary-container": "#fefcff",
+                        "primary-fixed-dim": "#b8c4ff",
+                        "tertiary": "#611e00",
+                        "error-container": "#ffdad6",
+                        "on-secondary-fixed-variant": "#004395",
+                        "surface": "#fbf8ff",
+                        "surface-container": "#eeedf7",
+                        "inverse-on-surface": "#f1f0fa",
+                        "on-primary-container": "#a8b8ff",
+                        "error": "#ba1a1a",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-primary": "#b8c4ff",
+                        "outline-variant": "#c4c5d5",
+                        "on-tertiary-fixed": "#380d00",
+                        "secondary": "#0058be",
+                        "surface-tint": "#3755c3",
+                        "secondary-fixed-dim": "#adc6ff",
+                        "on-error-container": "#93000a",
+                        "surface-container-high": "#e8e7f1",
+                        "inverse-surface": "#2f3037",
+                        "surface-container-highest": "#e3e1eb",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed-dim": "#ffb59a",
+                        "on-primary-fixed": "#001453",
+                        "surface-bright": "#fbf8ff",
+                        "primary-fixed": "#dde1ff",
+                        "outline": "#757684",
+                        "tertiary-container": "#872d00",
+                        "on-primary-fixed-variant": "#173bab",
+                        "primary": "#00288e",
+                        "on-surface": "#1a1b22",
+                        "on-secondary": "#ffffff",
+                        "surface-variant": "#e3e1eb",
+                        "secondary-container": "#2170e4",
+                        "background": "#fbf8ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xl": "32px",
+                        "container-max": "1200px",
+                        "sm": "8px",
+                        "gutter": "24px",
+                        "xs": "4px",
+                        "md": "16px",
+                        "margin-mobile": "16px",
+                        "margin-desktop": "64px",
+                        "lg": "24px",
+                        "base": "4px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Inter"],
+                        "headline-xl": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "label-md": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #F3F4F6;
+            font-family: 'Inter', sans-serif;
+            color: #1a1b22;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(8px);
+            border: 1px solid #D1D5DB;
+        }
+
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 24px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body class="min-h-screen flex flex-col">
+    <!-- TopNavBar -->
+    <nav class="bg-surface sticky top-0 z-50 border-b border-outline-variant">
+        <div class="flex justify-between items-center w-full px-margin-desktop max-w-container-max mx-auto h-16">
+            <div class="flex items-center gap-xl">
+                <span class="font-headline-md text-headline-md font-bold text-primary">Samadhan</span>
+                <div
+                    class="hidden md:flex items-center bg-surface-container-high px-md py-xs rounded-lg border border-outline-variant w-96">
+                    <span class="material-symbols-outlined text-outline mr-sm">search</span>
+                    <input class="bg-transparent border-none focus:ring-0 text-body-sm w-full placeholder:text-outline"
+                        placeholder="Search Citizen or Complaint ID..." type="text" />
+                </div>
+            </div>
+            <div class="flex items-center gap-md">
+                <div class="text-right hidden sm:block">
+                    <p class="font-label-md text-label-md text-on-surface">Good morning, CM Office</p>
+                    <p class="font-body-sm text-body-sm text-on-surface-variant">Tuesday, 24 Oct 2024</p>
+                </div>
+                <button class="p-sm rounded-full hover:bg-surface-container-low transition-colors">
+                    <span class="material-symbols-outlined text-on-surface-variant">notifications</span>
+                </button>
+                <div
+                    class="h-10 w-10 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container font-bold border border-outline-variant">
+                    <span class="material-symbols-outlined">person</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <main class="flex-grow w-full max-w-container-max mx-auto px-margin-desktop py-xl space-y-xl">
+        <!-- KPI Row -->
+        <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+            <!-- Total Open -->
+            <div
+                class="bg-surface border border-outline-variant p-lg rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                <div class="flex justify-between items-start mb-sm">
+                    <p class="font-label-md text-label-md text-on-surface-variant">Total Open Complaints</p>
+                    <span class="material-symbols-outlined text-primary">pending_actions</span>
+                </div>
+                <div class="flex items-baseline gap-sm">
+                    <h2 class="font-headline-lg text-headline-lg font-bold text-on-surface">14,282</h2>
+                    <span class="text-error font-label-md flex items-center">+2.4% <span
+                            class="material-symbols-outlined text-sm">trending_up</span></span>
+                </div>
+                <div class="mt-md h-8 w-full bg-surface-container-lowest rounded overflow-hidden">
+                    <div class="h-full bg-primary/20 w-3/4 rounded"></div>
+                </div>
+            </div>
+            <!-- SLA Breaches (Highlighted) -->
+            <div class="bg-error-container/20 border border-error p-lg rounded-xl shadow-sm relative overflow-hidden">
+                <div class="flex justify-between items-start mb-sm">
+                    <p class="font-label-md text-label-md text-error font-bold">SLA Breaches</p>
+                    <span class="material-symbols-outlined text-error"
+                        style="font-variation-settings: 'FILL' 1;">warning</span>
+                </div>
+                <div class="flex items-baseline gap-sm">
+                    <h2 class="font-headline-lg text-headline-lg font-bold text-on-error-container">128</h2>
+                    <span class="text-on-error-container font-label-md flex items-center">-8% <span
+                            class="material-symbols-outlined text-sm">trending_down</span></span>
+                </div>
+                <p class="font-body-sm text-body-sm text-on-error-container/70 mt-xs">Action Required: Immediate</p>
+            </div>
+            <!-- Avg Resolution Time -->
+            <div
+                class="bg-surface border border-outline-variant p-lg rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                <div class="flex justify-between items-start mb-sm">
+                    <p class="font-label-md text-label-md text-on-surface-variant">Avg Resolution Time</p>
+                    <span class="material-symbols-outlined text-secondary">schedule</span>
+                </div>
+                <div class="flex items-baseline gap-sm">
+                    <h2 class="font-headline-lg text-headline-lg font-bold text-on-surface">4.2 Days</h2>
+                    <span class="text-primary font-label-md flex items-center">-0.5d <span
+                            class="material-symbols-outlined text-sm">trending_down</span></span>
+                </div>
+                <div class="mt-md h-8 w-full flex items-end gap-1">
+                    <div class="bg-secondary/40 w-full h-1/2 rounded-t-sm"></div>
+                    <div class="bg-secondary/40 w-full h-3/4 rounded-t-sm"></div>
+                    <div class="bg-secondary/40 w-full h-2/3 rounded-t-sm"></div>
+                    <div class="bg-secondary/40 w-full h-full rounded-t-sm"></div>
+                </div>
+            </div>
+            <!-- Citizen Satisfaction -->
+            <div
+                class="bg-surface border border-outline-variant p-lg rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                <div class="flex justify-between items-start mb-sm">
+                    <p class="font-label-md text-label-md text-on-surface-variant">Citizen Satisfaction Score</p>
+                    <span class="material-symbols-outlined text-tertiary">sentiment_satisfied</span>
+                </div>
+                <div class="flex items-baseline gap-sm">
+                    <h2 class="font-headline-lg text-headline-lg font-bold text-on-surface">4.82/5</h2>
+                    <span class="text-primary font-label-md flex items-center">+0.12 <span
+                            class="material-symbols-outlined text-sm">trending_up</span></span>
+                </div>
+                <div class="mt-md flex gap-xs">
+                    <span class="material-symbols-outlined text-tertiary-container"
+                        style="font-variation-settings: 'FILL' 1;">star</span>
+                    <span class="material-symbols-outlined text-tertiary-container"
+                        style="font-variation-settings: 'FILL' 1;">star</span>
+                    <span class="material-symbols-outlined text-tertiary-container"
+                        style="font-variation-settings: 'FILL' 1;">star</span>
+                    <span class="material-symbols-outlined text-tertiary-container"
+                        style="font-variation-settings: 'FILL' 1;">star</span>
+                    <span class="material-symbols-outlined text-tertiary-container"
+                        style="font-variation-settings: 'FILL' 0.5;">star_half</span>
+                </div>
+            </div>
+        </section>
+        <!-- Main Section: Heatmap & Alerts -->
+        <section class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+            <!-- Interactive Heatmap -->
+            <div
+                class="lg:col-span-8 bg-surface border border-outline-variant rounded-xl p-lg flex flex-col min-h-[500px]">
+                <div class="flex justify-between items-center mb-lg">
+                    <div>
+                        <h3 class="font-headline-sm text-headline-sm font-bold text-on-surface">Complaint Density: Delhi
+                            Districts</h3>
+                        <p class="font-body-sm text-body-sm text-on-surface-variant">Visualizing real-time grievances
+                            across the NCR</p>
+                    </div>
+                    <div class="flex bg-surface-container rounded-lg p-1">
+                        <button
+                            class="px-md py-1 text-label-md rounded-md bg-surface shadow-sm font-bold text-primary">By
+                            Category</button>
+                        <button
+                            class="px-md py-1 text-label-md rounded-md text-on-surface-variant hover:bg-surface-container-high">By
+                            Department</button>
+                    </div>
+                </div>
+                <div
+                    class="relative flex-grow rounded-lg overflow-hidden bg-surface-container-low group border border-outline-variant/30">
+                    <img class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700"
+                        data-alt="A highly detailed 3D architectural map of Delhi city, showing various districts like New Delhi and Old Delhi with a stylized heatmap overlay. The colors range from deep corporate blue to vibrant yellow glows in high-density areas. The aesthetic is clean, professional, and institutional, with sharp lines and subtle drop shadows. The lighting is bright and modern, suggesting a high-level government control center interface."
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBflB3k_wEd2mGZ4S7MFt8NanxiLMam6Erp9i4_cX2LsOEgjiPdu8QoCgVGEuF3tZKNKHwk7WjI5RRQbIu6OHVUWZ4EOmxo_rkAcTQEP4yQ_cBOrH1FO5LbrGQ72toDVoEb4bx7pcoZS4u0pPMrhIwgo9RVP41ZDvGO17XQ49YgZmopNtNxPFX5gJH_UnyAUI0tV_zzMIA7uXQb69FoON9T0CsnY5QWgkAPSoJFLIyCW-4nx2MeGyCYTskJq0csiJ3inhnhtlSqYfs" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-surface/80 to-transparent pointer-events-none">
+                    </div>
+                    <!-- Floating Data Tooltip Placeholder -->
+                    <div
+                        class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-surface p-md rounded-lg shadow-xl border border-primary flex flex-col gap-xs">
+                        <span class="font-label-md font-bold text-primary">North Delhi District</span>
+                        <div class="flex justify-between gap-xl">
+                            <span class="text-body-sm">Active Complaints:</span>
+                            <span class="font-bold">2,410</span>
+                        </div>
+                        <div class="flex justify-between gap-xl">
+                            <span class="text-body-sm">Trend:</span>
+                            <span class="text-error flex items-center font-bold text-xs">High Density <span
+                                    class="material-symbols-outlined text-xs">stat_3</span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Critical Alerts Feed -->
+            <div class="lg:col-span-4 flex flex-col gap-md h-full">
+                <div class="flex items-center justify-between">
+                    <h3 class="font-headline-sm text-headline-sm font-bold text-on-surface">Critical Alerts</h3>
+                    <span class="bg-error text-on-error text-[10px] px-2 py-0.5 rounded-full animate-pulse">4 NEW</span>
+                </div>
+                <div class="flex flex-col gap-md overflow-y-auto custom-scrollbar max-h-[440px]">
+                    <!-- Alert Card 1 -->
+                    <div
+                        class="bg-surface border-l-4 border-error p-md rounded-r-xl shadow-sm hover:translate-x-1 transition-transform cursor-pointer border border-y-outline-variant border-r-outline-variant">
+                        <div class="flex justify-between items-start mb-xs">
+                            <span class="text-[10px] font-bold text-error tracking-widest uppercase">URGENT • WATER
+                                SUPPLY</span>
+                            <span class="text-body-sm text-on-surface-variant italic">2m ago</span>
+                        </div>
+                        <p class="font-label-md text-on-surface mb-sm line-clamp-2">Mass pipe burst reported in Rohini
+                            Sector 7. Affecting 20,000+ residents. DJB dispatch requested.</p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex -space-x-2">
+                                <div
+                                    class="w-6 h-6 rounded-full bg-surface-container-highest border border-surface flex items-center justify-center text-[10px]">
+                                    DJB</div>
+                                <div
+                                    class="w-6 h-6 rounded-full bg-surface-container-highest border border-surface flex items-center justify-center text-[10px]">
+                                    DM</div>
+                            </div>
+                            <button class="text-primary font-label-md hover:underline flex items-center gap-xs">View
+                                Case <span class="material-symbols-outlined text-sm">open_in_new</span></button>
+                        </div>
+                    </div>
+                    <!-- Alert Card 2 -->
+                    <div
+                        class="bg-surface border-l-4 border-error p-md rounded-r-xl shadow-sm hover:translate-x-1 transition-transform cursor-pointer border border-y-outline-variant border-r-outline-variant">
+                        <div class="flex justify-between items-start mb-xs">
+                            <span class="text-[10px] font-bold text-error tracking-widest uppercase">SLA BREACH •
+                                PWD</span>
+                            <span class="text-body-sm text-on-surface-variant italic">15m ago</span>
+                        </div>
+                        <p class="font-label-md text-on-surface mb-sm line-clamp-2">Public road structural hazard
+                            complaint #7712 exceeded 48h limit without departmental response.</p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex -space-x-2">
+                                <div
+                                    class="w-6 h-6 rounded-full bg-surface-container-highest border border-surface flex items-center justify-center text-[10px]">
+                                    PWD</div>
+                            </div>
+                            <button class="text-primary font-label-md hover:underline flex items-center gap-xs">Escalate
+                                <span class="material-symbols-outlined text-sm">priority_high</span></button>
+                        </div>
+                    </div>
+                    <!-- Alert Card 3 -->
+                    <div
+                        class="bg-surface border-l-4 border-error p-md rounded-r-xl shadow-sm hover:translate-x-1 transition-transform cursor-pointer border border-y-outline-variant border-r-outline-variant">
+                        <div class="flex justify-between items-start mb-xs">
+                            <span class="text-[10px] font-bold text-error tracking-widest uppercase">FIRE SAFETY •
+                                HAZARD</span>
+                            <span class="text-body-sm text-on-surface-variant italic">1h ago</span>
+                        </div>
+                        <p class="font-label-md text-on-surface mb-sm line-clamp-2">Illegal storage of combustible
+                            chemicals reported in Okhla Phase III Industrial Area.</p>
+                        <div class="flex items-center justify-between">
+                            <button class="text-primary font-label-md hover:underline flex items-center gap-xs">View
+                                Details <span class="material-symbols-outlined text-sm">chevron_right</span></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Middle Section: Analytics -->
+        <section class="grid grid-cols-1 lg:grid-cols-2 gap-gutter">
+            <!-- Bar Chart Card -->
+            <div class="bg-surface border border-outline-variant rounded-xl p-lg">
+                <div class="flex justify-between items-start mb-lg">
+                    <h3 class="font-headline-sm text-headline-sm font-bold text-on-surface">Top 5 Departments by Open
+                        Complaints</h3>
+                    <button class="p-xs hover:bg-surface-container rounded"><span
+                            class="material-symbols-outlined">more_vert</span></button>
+                </div>
+                <div class="space-y-md">
+                    <!-- Dept 1 -->
+                    <div>
+                        <div class="flex justify-between font-label-md text-on-surface mb-xs">
+                            <span>Delhi Jal Board (DJB)</span>
+                            <span class="font-bold">4,120</span>
+                        </div>
+                        <div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden">
+                            <div class="bg-primary h-full w-[85%]"></div>
+                        </div>
+                    </div>
+                    <!-- Dept 2 -->
+                    <div>
+                        <div class="flex justify-between font-label-md text-on-surface mb-xs">
+                            <span>Public Works Dept (PWD)</span>
+                            <span class="font-bold">3,850</span>
+                        </div>
+                        <div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden">
+                            <div class="bg-primary h-full w-[72%]"></div>
+                        </div>
+                    </div>
+                    <!-- Dept 3 -->
+                    <div>
+                        <div class="flex justify-between font-label-md text-on-surface mb-xs">
+                            <span>MCD East</span>
+                            <span class="font-bold">2,100</span>
+                        </div>
+                        <div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden">
+                            <div class="bg-primary h-full w-[45%]"></div>
+                        </div>
+                    </div>
+                    <!-- Dept 4 -->
+                    <div>
+                        <div class="flex justify-between font-label-md text-on-surface mb-xs">
+                            <span>MCD North</span>
+                            <span class="font-bold">1,920</span>
+                        </div>
+                        <div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden">
+                            <div class="bg-primary h-full w-[41%]"></div>
+                        </div>
+                    </div>
+                    <!-- Dept 5 -->
+                    <div>
+                        <div class="flex justify-between font-label-md text-on-surface mb-xs">
+                            <span>Power (Discoms)</span>
+                            <span class="font-bold">1,212</span>
+                        </div>
+                        <div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden">
+                            <div class="bg-primary h-full w-[28%]"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Line Chart Card -->
+            <div class="bg-surface border border-outline-variant rounded-xl p-lg flex flex-col">
+                <div class="flex justify-between items-start mb-lg">
+                    <h3 class="font-headline-sm text-headline-sm font-bold text-on-surface">Resolution Trend — Last 30
+                        Days</h3>
+                    <div class="flex gap-md items-center">
+                        <div class="flex items-center gap-xs">
+                            <div class="w-3 h-3 rounded-full bg-primary"></div>
+                            <span class="text-[10px] text-on-surface-variant font-bold">SOLVED</span>
+                        </div>
+                        <div class="flex items-center gap-xs">
+                            <div class="w-3 h-3 rounded-full bg-outline-variant"></div>
+                            <span class="text-[10px] text-on-surface-variant font-bold">RECEIVED</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex-grow flex items-end gap-2 px-2 pb-2">
+                    <!-- Faux Bar/Line Chart Visualization -->
+                    <div class="flex-grow h-40 border-b border-l border-outline-variant relative">
+                        <svg class="absolute inset-0 w-full h-full" preserveaspectratio="none" viewbox="0 0 100 100">
+                            <path d="M0 80 L10 75 L20 85 L30 60 L40 55 L50 40 L60 35 L70 45 L80 20 L90 15 L100 10"
+                                fill="none" stroke="#00288e" stroke-width="2" vector-effect="non-scaling-stroke"></path>
+                            <path d="M0 90 L10 88 L20 85 L30 80 L40 78 L50 75 L60 72 L70 70 L80 68 L90 65 L100 60"
+                                fill="none" stroke="#c4c5d5" stroke-dasharray="4" stroke-width="2"
+                                vector-effect="non-scaling-stroke"></path>
+                        </svg>
+                    </div>
+                </div>
+                <div class="flex justify-between text-[10px] text-on-surface-variant mt-sm px-2">
+                    <span>SEP 24</span>
+                    <span>OCT 08</span>
+                    <span>OCT 16</span>
+                    <span>OCT 24</span>
+                </div>
+            </div>
+        </section>
+        <!-- Bottom Section: Table & Action -->
+        <section class="bg-surface border border-outline-variant rounded-xl p-lg">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-lg gap-md">
+                <div>
+                    <h3 class="font-headline-sm text-headline-sm font-bold text-on-surface">Officer Bandwidth Overview
+                    </h3>
+                    <p class="font-body-sm text-body-sm text-on-surface-variant">Real-time performance tracking of nodal
+                        officers</p>
+                </div>
+                <button
+                    class="px-lg py-sm rounded-lg border border-primary text-primary font-bold hover:bg-primary-container/10 transition-colors flex items-center gap-sm">
+                    <span class="material-symbols-outlined text-sm">query_stats</span>
+                    Randomly Review Closed Complaints
+                </button>
+            </div>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="border-b border-outline-variant">
+                            <th
+                                class="py-md px-sm font-label-md text-on-surface-variant uppercase tracking-wider text-xs">
+                                Officer Name</th>
+                            <th
+                                class="py-md px-sm font-label-md text-on-surface-variant uppercase tracking-wider text-xs">
+                                Department</th>
+                            <th
+                                class="py-md px-sm font-label-md text-on-surface-variant uppercase tracking-wider text-xs">
+                                Active Cases</th>
+                            <th
+                                class="py-md px-sm font-label-md text-on-surface-variant uppercase tracking-wider text-xs">
+                                Integrity Score</th>
+                            <th
+                                class="py-md px-sm font-label-md text-on-surface-variant uppercase tracking-wider text-xs">
+                                Status</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-outline-variant/30">
+                        <tr class="hover:bg-surface-container-lowest transition-colors">
+                            <td class="py-md px-sm">
+                                <div class="flex items-center gap-md">
+                                    <div
+                                        class="w-8 h-8 rounded-full bg-surface-dim flex items-center justify-center font-bold text-xs">
+                                        VK</div>
+                                    <span class="font-label-md text-on-surface">Vikram Khanna</span>
+                                </div>
+                            </td>
+                            <td class="py-md px-sm font-body-sm">DJB - West</td>
+                            <td class="py-md px-sm font-label-md">142</td>
+                            <td class="py-md px-sm">
+                                <div class="flex items-center gap-xs">
+                                    <div class="h-1.5 w-16 bg-surface-container-high rounded-full overflow-hidden">
+                                        <div class="h-full bg-green-500 w-[95%]"></div>
+                                    </div>
+                                    <span class="text-xs font-bold">95%</span>
+                                </div>
+                            </td>
+                            <td class="py-md px-sm"><span
+                                    class="px-2 py-0.5 rounded-full bg-green-100 text-green-700 text-[10px] font-bold">OPTIMAL</span>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-surface-container-lowest transition-colors">
+                            <td class="py-md px-sm">
+                                <div class="flex items-center gap-md">
+                                    <div
+                                        class="w-8 h-8 rounded-full bg-surface-dim flex items-center justify-center font-bold text-xs">
+                                        SM</div>
+                                    <span class="font-label-md text-on-surface">Sunita Maurya</span>
+                                </div>
+                            </td>
+                            <td class="py-md px-sm font-body-sm">MCD - Central</td>
+                            <td class="py-md px-sm font-label-md">312</td>
+                            <td class="py-md px-sm">
+                                <div class="flex items-center gap-xs">
+                                    <div class="h-1.5 w-16 bg-surface-container-high rounded-full overflow-hidden">
+                                        <div class="h-full bg-yellow-500 w-[82%]"></div>
+                                    </div>
+                                    <span class="text-xs font-bold">82%</span>
+                                </div>
+                            </td>
+                            <td class="py-md px-sm"><span
+                                    class="px-2 py-0.5 rounded-full bg-yellow-100 text-yellow-700 text-[10px] font-bold">OVERLOADED</span>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-surface-container-lowest transition-colors">
+                            <td class="py-md px-sm">
+                                <div class="flex items-center gap-md">
+                                    <div
+                                        class="w-8 h-8 rounded-full bg-surface-dim flex items-center justify-center font-bold text-xs">
+                                        RP</div>
+                                    <span class="font-label-md text-on-surface">Rajesh Prasad</span>
+                                </div>
+                            </td>
+                            <td class="py-md px-sm font-body-sm">PWD - South</td>
+                            <td class="py-md px-sm font-label-md">88</td>
+                            <td class="py-md px-sm">
+                                <div class="flex items-center gap-xs">
+                                    <div class="h-1.5 w-16 bg-surface-container-high rounded-full overflow-hidden">
+                                        <div class="h-full bg-green-500 w-[98%]"></div>
+                                    </div>
+                                    <span class="text-xs font-bold">98%</span>
+                                </div>
+                            </td>
+                            <td class="py-md px-sm"><span
+                                    class="px-2 py-0.5 rounded-full bg-green-100 text-green-700 text-[10px] font-bold">OPTIMAL</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+    <!-- Footer -->
+    <footer class="bg-surface-container border-t border-outline-variant">
+        <div
+            class="flex flex-col md:flex-row justify-between items-center w-full py-xl px-margin-desktop max-w-container-max mx-auto gap-md">
+            <span class="font-headline-sm text-headline-sm font-bold text-on-surface">Samadhan</span>
+            <p class="font-label-md text-label-md text-on-surface-variant">© 2024 Government of NCT of Delhi. All rights
+                reserved.</p>
+            <div class="flex gap-xl">
+                <a class="font-label-md text-label-md text-on-surface-variant hover:text-primary underline"
+                    href="#">Privacy Policy</a>
+                <a class="font-label-md text-label-md text-on-surface-variant hover:text-primary underline"
+                    href="#">Help Desk</a>
+                <a class="font-label-md text-label-md text-on-surface-variant hover:text-primary underline"
+                    href="#">Contact Us</a>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // Simple Micro-interaction for Heatmap hover
+        document.querySelector('.group').addEventListener('mousemove', (e) => {
+            const rect = e.currentTarget.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            // This could be used to move a custom cursor or dynamic tooltip
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+    <title>Samadhan - File a Complaint</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+
+        .step-transition {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #d1d5db;
+            border-radius: 10px;
+        }
+    </style>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-container": "#1e40af",
+                        "on-secondary-fixed-variant": "#004395",
+                        "surface-variant": "#e3e1eb",
+                        "primary-fixed-dim": "#b8c4ff",
+                        "primary": "#00288e",
+                        "on-primary-fixed-variant": "#173bab",
+                        "on-primary-container": "#a8b8ff",
+                        "on-primary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "surface-container-high": "#e8e7f1",
+                        "surface-container": "#eeedf7",
+                        "secondary": "#0058be",
+                        "on-error-container": "#93000a",
+                        "inverse-on-surface": "#f1f0fa",
+                        "surface-bright": "#fbf8ff",
+                        "secondary-fixed": "#d8e2ff",
+                        "surface-tint": "#3755c3",
+                        "on-surface": "#1a1b22",
+                        "outline": "#757684",
+                        "inverse-surface": "#2f3037",
+                        "surface": "#fbf8ff",
+                        "on-tertiary-container": "#ffa583",
+                        "tertiary-fixed-dim": "#ffb59a",
+                        "tertiary": "#611e00",
+                        "on-tertiary-fixed-variant": "#802a00",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-fixed": "#380d00",
+                        "on-tertiary": "#ffffff",
+                        "secondary-fixed-dim": "#adc6ff",
+                        "outline-variant": "#c4c5d5",
+                        "surface-dim": "#dad9e3",
+                        "on-secondary-container": "#fefcff",
+                        "tertiary-fixed": "#ffdbce",
+                        "on-surface-variant": "#444653",
+                        "on-secondary-fixed": "#001a42",
+                        "on-error": "#ffffff",
+                        "inverse-primary": "#b8c4ff",
+                        "surface-container-low": "#f4f2fc",
+                        "surface-container-highest": "#e3e1eb",
+                        "primary-fixed": "#dde1ff",
+                        "on-primary-fixed": "#001453",
+                        "on-secondary": "#ffffff",
+                        "on-background": "#1a1b22",
+                        "background": "#fbf8ff",
+                        "tertiary-container": "#872d00",
+                        "secondary-container": "#2170e4",
+                        "error-container": "#ffdad6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "sm": "8px",
+                        "xs": "4px",
+                        "md": "16px",
+                        "margin-mobile": "16px",
+                        "xl": "32px",
+                        "base": "4px",
+                        "margin-desktop": "64px",
+                        "container-max": "1200px",
+                        "lg": "24px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "label-md": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-xl": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "500" }],
+                        "label-md": ["14px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "500" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "500" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "500" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-xl": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "500" }]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+
+<body class="bg-[#F3F4F6] text-on-surface min-h-screen pb-32">
+    <!-- Top AppBar Component -->
+    <header
+        class="fixed top-0 w-full z-50 bg-surface border-b border-outline-variant h-16 flex items-center justify-between px-margin-mobile">
+        <div class="flex items-center gap-4">
+            <button aria-label="Go back"
+                class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-low transition-colors duration-200">
+                <span class="material-symbols-outlined text-primary" data-icon="arrow_back">arrow_back</span>
+            </button>
+            <h1 class="font-headline-sm text-headline-sm text-primary">File a Complaint</h1>
+        </div>
+        <div class="w-10"></div> <!-- Spacer for symmetry -->
+    </header>
+    <main class="mt-20 px-margin-mobile max-w-container-max mx-auto space-y-6">
+        <!-- Progress Indicator -->
+        <section class="bg-surface-container-low rounded-xl p-lg border border-outline-variant shadow-sm">
+            <div class="flex justify-between items-center mb-sm">
+                <span class="font-label-md text-label-md text-primary font-bold">Step 1 of 3</span>
+                <span class="font-label-md text-label-md text-on-surface-variant">Complaint Details</span>
+            </div>
+            <div class="w-full bg-surface-variant h-2 rounded-full overflow-hidden">
+                <div class="bg-primary h-full step-transition" id="progress-bar" style="width: 33.33%"></div>
+            </div>
+        </section>
+        <!-- Form Step 1: Complaint Details -->
+        <div class="space-y-gutter">
+            <section class="bg-white rounded-xl border border-outline-variant p-lg shadow-sm">
+                <div class="flex items-center gap-2 mb-md">
+                    <span class="material-symbols-outlined text-primary" data-icon="description">description</span>
+                    <h2 class="font-headline-sm text-headline-sm text-on-surface">Complaint Details</h2>
+                </div>
+                <div class="space-y-md">
+                    <!-- Category Selection -->
+                    <div>
+                        <div class="flex justify-between items-center mb-xs">
+                            <label class="font-label-md text-label-md text-on-surface-variant">Complaint
+                                Category</label>
+                            <span
+                                class="bg-secondary-fixed text-on-secondary-fixed-variant px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider flex items-center gap-1">
+                                <span class="material-symbols-outlined text-[12px]"
+                                    data-icon="auto_awesome">auto_awesome</span>
+                                ✨ Auto-suggested
+                            </span>
+                        </div>
+                        <div class="relative">
+                            <select
+                                class="w-full h-12 bg-white border border-outline-variant rounded-lg px-4 font-body-md text-body-md focus:ring-2 focus:ring-primary focus:ring-offset-2 outline-none appearance-none">
+                                <option disabled="" selected="" value="">Select a category</option>
+                                <option value="roads">🛣️ Roads</option>
+                                <option value="water">💧 Water Supply</option>
+                                <option value="electricity">⚡ Electricity</option>
+                                <option value="sanitation">🧹 Sanitation</option>
+                                <option value="law">⚖️ Law &amp; Order</option>
+                            </select>
+                            <div class="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none">
+                                <span class="material-symbols-outlined text-on-surface-variant"
+                                    data-icon="expand_more">expand_more</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Short Title -->
+                    <div>
+                        <label class="font-label-md text-label-md text-on-surface-variant mb-xs block">Short
+                            Title</label>
+                        <input
+                            class="w-full h-12 bg-white border border-outline-variant rounded-lg px-4 font-body-md text-body-md focus:ring-2 focus:ring-primary focus:ring-offset-2 outline-none"
+                            placeholder="e.g. Pothole on MG Road" type="text" />
+                    </div>
+                    <!-- Description -->
+                    <div>
+                        <label
+                            class="font-label-md text-label-md text-on-surface-variant mb-xs block">Description</label>
+                        <textarea
+                            class="w-full bg-white border border-outline-variant rounded-lg p-4 font-body-md text-body-md focus:ring-2 focus:ring-primary focus:ring-offset-2 outline-none resize-none"
+                            placeholder="Describe the issue in detail" rows="4"></textarea>
+                    </div>
+                </div>
+            </section>
+            <!-- Form Step 2: Location -->
+            <section class="bg-white rounded-xl border border-outline-variant p-lg shadow-sm">
+                <div class="flex items-center gap-2 mb-md">
+                    <span class="material-symbols-outlined text-primary" data-icon="location_on">location_on</span>
+                    <h2 class="font-headline-sm text-headline-sm text-on-surface">Location</h2>
+                </div>
+                <div class="space-y-md">
+                    <!-- Map Placeholder -->
+                    <div
+                        class="relative w-full h-48 rounded-xl overflow-hidden border border-outline-variant bg-surface-variant">
+                        <img alt="Map Selection" class="w-full h-full object-cover opacity-60"
+                            data-alt="A clean, professional digital map interface showing a suburban city grid with a single prominent blue location pin dropped on a street. The map style is minimalist with soft grays and blues, emphasizing clarity and official government service aesthetics. High-key lighting makes the interface look modern and trustworthy."
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCeTW4B_7I-8RQO0-AOuStk7Csd51YEdmPJN9CANBhYSGozshFRFmhnWD0OZk_1JQ1yMk07xrQu6dkssi5QYYk3KF5BlxavLnRJzoBoXxEiV_9phQxOsOjpleTmR7JWH5xAPczKrfvMX-sNtPASJ6iZRUn9l5XtYlBgfd934fPY4mN82GvoEvQ_qvgkr_xdB0ZmvY-sUhdVximdp1R33rp_KhAl8qLDIh9ncEJeHms_D-X3YI1QEAV15nOw_nkcIOsKWxsOoYiD5Yo" />
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <span class="material-symbols-outlined text-primary text-4xl" data-icon="location_on"
+                                style="font-variation-settings: 'FILL' 1;">location_on</span>
+                        </div>
+                        <div class="absolute bottom-3 right-3">
+                            <button
+                                class="bg-primary text-on-primary px-4 py-2 rounded-full font-label-md text-label-md flex items-center gap-2 shadow-lg active:scale-95 transition-transform">
+                                <span class="material-symbols-outlined text-sm"
+                                    data-icon="my_location">my_location</span>
+                                Use my current location
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Manual Address Fallback -->
+                    <div>
+                        <label class="font-label-md text-label-md text-on-surface-variant mb-xs block">Manual Address
+                            Fallback</label>
+                        <input
+                            class="w-full h-12 bg-white border border-outline-variant rounded-lg px-4 font-body-md text-body-md focus:ring-2 focus:ring-primary focus:ring-offset-2 outline-none"
+                            placeholder="House no, Street, Area name" type="text" />
+                    </div>
+                </div>
+            </section>
+            <!-- Form Step 3: Evidence & Priority -->
+            <section class="bg-white rounded-xl border border-outline-variant p-lg shadow-sm">
+                <div class="flex items-center gap-2 mb-md">
+                    <span class="material-symbols-outlined text-primary" data-icon="attachment">attachment</span>
+                    <h2 class="font-headline-sm text-headline-sm text-on-surface">Supporting Evidence &amp; Priority
+                    </h2>
+                </div>
+                <div class="space-y-lg">
+                    <!-- Upload Box -->
+                    <div
+                        class="border-2 border-dashed border-outline-variant rounded-xl p-xl flex flex-col items-center justify-center bg-surface-container-low hover:bg-surface-variant transition-colors cursor-pointer group">
+                        <div
+                            class="w-16 h-16 rounded-full bg-primary-fixed flex items-center justify-center mb-md group-hover:scale-110 transition-transform">
+                            <span class="material-symbols-outlined text-primary text-3xl"
+                                data-icon="photo_camera">photo_camera</span>
+                        </div>
+                        <p class="font-headline-sm text-headline-sm text-primary mb-1">Attach Photo/Video</p>
+                        <p class="font-body-sm text-body-sm text-on-surface-variant">Maximum file size: 10MB</p>
+                    </div>
+                    <!-- Severity Selector -->
+                    <div>
+                        <label class="font-label-md text-label-md text-on-surface-variant mb-md block">Issue
+                            Severity</label>
+                        <div class="grid grid-cols-3 gap-sm">
+                            <button
+                                class="severity-pill h-12 rounded-full border border-outline-variant font-label-md text-label-md flex items-center justify-center gap-1 transition-all hover:bg-surface-container-high bg-white text-on-surface"
+                                onclick="selectSeverity(this, 'low')">
+                                Low
+                            </button>
+                            <button
+                                class="severity-pill h-12 rounded-full border border-outline-variant font-label-md text-label-md flex items-center justify-center gap-1 transition-all hover:bg-surface-container-high bg-white text-on-surface"
+                                onclick="selectSeverity(this, 'medium')">
+                                Medium
+                            </button>
+                            <button
+                                class="severity-pill h-12 rounded-full border border-outline-variant font-label-md text-label-md flex items-center justify-center gap-1 transition-all hover:bg-red-50 bg-white text-on-surface"
+                                onclick="selectSeverity(this, 'critical')">
+                                <span class="material-symbols-outlined text-sm hidden"
+                                    data-icon="warning">warning</span>
+                                Critical
+                            </button>
+                        </div>
+                        <p class="mt-sm font-body-sm text-body-sm text-error hidden flex items-center gap-1"
+                            id="critical-warning">
+                            <span class="material-symbols-outlined text-sm" data-icon="info">info</span>
+                            Select Critical only for life-threatening issues.
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    <!-- Bottom Sticky Action -->
+    <footer
+        class="fixed bottom-0 left-0 w-full bg-white p-margin-mobile border-t border-outline-variant flex gap-4 z-50">
+        <button
+            class="flex-1 bg-primary-container text-white h-14 rounded-xl font-headline-sm text-headline-sm font-bold flex items-center justify-center gap-2 active:scale-95 transition-transform shadow-lg shadow-primary-container/20">
+            Submit Complaint
+            <span class="material-symbols-outlined" data-icon="send">send</span>
+        </button>
+    </footer>
+    <script>
+        function selectSeverity(element, level) {
+            // Reset all
+            document.querySelectorAll('.severity-pill').forEach(btn => {
+                btn.className = 'severity-pill h-12 rounded-full border border-outline-variant font-label-md text-label-md flex items-center justify-center gap-1 transition-all bg-white text-on-surface';
+                const icon = btn.querySelector('.material-symbols-outlined');
+                if (icon) icon.classList.add('hidden');
+            });
+
+            const warning = document.getElementById('critical-warning');
+            warning.classList.add('hidden');
+
+            // Apply selected state
+            if (level === 'critical') {
+                element.className = 'severity-pill h-12 rounded-full font-label-md text-label-md flex items-center justify-center gap-1 transition-all bg-error text-on-error shadow-lg shadow-error/30';
+                element.querySelector('.material-symbols-outlined').classList.remove('hidden');
+                warning.classList.remove('hidden');
+            } else {
+                element.className = 'severity-pill h-12 rounded-full font-label-md text-label-md flex items-center justify-center gap-1 transition-all bg-primary-container text-white shadow-lg shadow-primary-container/30';
+            }
+        }
+
+        // Simple scroll monitoring for progress (demo purposes)
+        window.onscroll = function () {
+            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            let scrolled = (winScroll / height) * 100;
+
+            const bar = document.getElementById('progress-bar');
+            if (scrolled < 33) {
+                bar.style.width = "33.33%";
+            } else if (scrolled < 66) {
+                bar.style.width = "66.66%";
+            } else {
+                bar.style.width = "100%";
+            }
+        };
+    </script>
+</body>
+
+</html>

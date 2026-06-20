@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>My Complaints - Delhi Jal Board</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed-dim": "#b8c4ff",
+                        "on-surface": "#1a1b22",
+                        "surface-container": "#eeedf7",
+                        "on-secondary-fixed": "#001a42",
+                        "surface-container-high": "#e8e7f1",
+                        "tertiary-fixed-dim": "#ffb59a",
+                        "tertiary-container": "#872d00",
+                        "surface-bright": "#fbf8ff",
+                        "on-surface-variant": "#444653",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed": "#d8e2ff",
+                        "surface-container-lowest": "#ffffff",
+                        "outline": "#757684",
+                        "on-primary-container": "#a8b8ff",
+                        "secondary": "#0058be",
+                        "inverse-primary": "#b8c4ff",
+                        "surface-container-highest": "#e3e1eb",
+                        "surface": "#fbf8ff",
+                        "on-primary-fixed-variant": "#173bab",
+                        "inverse-on-surface": "#f1f0fa",
+                        "on-tertiary-fixed": "#380d00",
+                        "on-error": "#ffffff",
+                        "surface-dim": "#dad9e3",
+                        "error": "#ba1a1a",
+                        "tertiary": "#611e00",
+                        "on-primary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "secondary-container": "#2170e4",
+                        "primary": "#00288e",
+                        "on-tertiary-container": "#ffa583",
+                        "on-secondary-fixed-variant": "#004395",
+                        "primary-container": "#1e40af",
+                        "on-background": "#1a1b22",
+                        "surface-variant": "#e3e1eb",
+                        "surface-container-low": "#f4f2fc",
+                        "outline-variant": "#c4c5d5",
+                        "surface-tint": "#3755c3",
+                        "inverse-surface": "#2f3037",
+                        "on-tertiary-fixed-variant": "#802a00",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed": "#dde1ff",
+                        "tertiary-fixed": "#ffdbce",
+                        "secondary-fixed-dim": "#adc6ff",
+                        "on-primary-fixed": "#001453",
+                        "on-error-container": "#93000a",
+                        "on-secondary-container": "#fefcff",
+                        "background": "#fbf8ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "8px",
+                        "lg": "8px",
+                        "xl": "16px",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "base": "4px",
+                        "container-max": "1200px",
+                        "lg": "24px",
+                        "margin-desktop": "64px",
+                        "gutter": "24px",
+                        "xs": "4px",
+                        "xl": "32px",
+                        "md": "16px",
+                        "sm": "8px",
+                        "margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-xl": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "label-md": ["Inter"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-xl": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "600" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "label-md": ["14px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F3F4F6;
+        }
+
+        .sidebar-active {
+            background-color: #1e40af;
+            color: white;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .sidebar-nav-item:hover {
+            background-color: rgba(30, 64, 175, 0.1);
+        }
+
+        .card-shadow {
+            box-shadow: 0px 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+
+<body class="flex min-h-screen">
+    <!-- Left Sidebar -->
+    <aside class="w-72 bg-white border-r border-outline-variant flex flex-col fixed h-full z-40">
+        <div class="p-lg flex flex-col gap-base border-b border-outline-variant">
+            <h1 class="font-headline-sm text-primary flex items-center gap-sm">
+                <span class="material-symbols-outlined text-primary"
+                    style="font-variation-settings: 'FILL' 1;">water_drop</span>
+                Delhi Jal Board
+            </h1>
+            <div class="mt-md flex items-center gap-md p-md bg-surface-container rounded-lg">
+                <div
+                    class="h-10 w-10 rounded-full bg-primary-container flex items-center justify-center text-white font-bold">
+                    RK
+                </div>
+                <div>
+                    <p class="font-label-md text-on-surface">Rajesh Kumar</p>
+                    <p class="text-[12px] text-on-surface-variant font-medium">Senior Officer</p>
+                </div>
+            </div>
+        </div>
+        <nav class="flex-1 p-md flex flex-col gap-sm">
+            <a class="sidebar-nav-item flex items-center gap-md p-md rounded-lg text-on-surface-variant transition-colors"
+                href="#">
+                <span class="material-symbols-outlined">dashboard</span>
+                <span class="font-label-md">Dashboard</span>
+            </a>
+            <a class="sidebar-active flex items-center gap-md p-md rounded-lg shadow-sm transition-colors" href="#">
+                <span class="material-symbols-outlined">assignment_late</span>
+                <span class="font-label-md">My Complaints</span>
+            </a>
+            <a class="sidebar-nav-item flex items-center gap-md p-md rounded-lg text-on-surface-variant transition-colors"
+                href="#">
+                <span class="material-symbols-outlined">map</span>
+                <span class="font-label-md">Map View</span>
+            </a>
+            <a class="sidebar-nav-item flex items-center gap-md p-md rounded-lg text-on-surface-variant transition-colors"
+                href="#">
+                <span class="material-symbols-outlined">person</span>
+                <span class="font-label-md">Profile</span>
+            </a>
+        </nav>
+        <div class="p-lg border-t border-outline-variant">
+            <button
+                class="flex items-center gap-md w-full p-md text-on-surface-variant hover:text-error transition-colors rounded-lg">
+                <span class="material-symbols-outlined">logout</span>
+                <span class="font-label-md">Logout</span>
+            </button>
+        </div>
+    </aside>
+    <!-- Main Content Wrapper -->
+    <div class="flex-1 ml-72 flex flex-col">
+        <!-- Top Bar -->
+        <header
+            class="h-16 bg-white border-b border-outline-variant flex items-center justify-between px-lg sticky top-0 z-30">
+            <div class="flex-1 max-w-xl">
+                <div class="relative group">
+                    <span
+                        class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors">search</span>
+                    <input
+                        class="w-full pl-10 pr-md py-sm bg-surface-container-low border border-outline-variant rounded-lg focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-all outline-none text-body-sm"
+                        placeholder="Search by Complaint ID, Citizen Name or District..." type="text" />
+                </div>
+            </div>
+            <div class="flex items-center gap-lg">
+                <div
+                    class="flex items-center bg-surface-container px-md py-1.5 rounded-full border border-outline-variant">
+                    <span class="material-symbols-outlined text-[18px] text-green-600 mr-1.5"
+                        style="font-variation-settings: 'FILL' 1;">verified_user</span>
+                    <span class="font-label-md text-on-surface">98% Integrity</span>
+                </div>
+                <button
+                    class="relative p-2 text-on-surface-variant hover:bg-surface-container-low rounded-full transition-colors">
+                    <span class="material-symbols-outlined">notifications</span>
+                    <span class="absolute top-1 right-1 w-2 h-2 bg-error rounded-full"></span>
+                </button>
+                <button
+                    class="p-2 text-on-surface-variant hover:bg-surface-container-low rounded-full transition-colors">
+                    <span class="material-symbols-outlined">settings</span>
+                </button>
+            </div>
+        </header>
+        <!-- Page Content -->
+        <main class="p-lg flex flex-col gap-lg">
+            <!-- Alert Banner -->
+            <div class="bg-error-container text-on-error-container p-md rounded-lg border border-error/20 flex items-center justify-between shadow-sm animate-pulse-subtle"
+                id="critical-alert">
+                <div class="flex items-center gap-md">
+                    <span class="material-symbols-outlined text-error"
+                        style="font-variation-settings: 'FILL' 1;">warning</span>
+                    <p class="font-body-md font-medium">1 Critical complaint requires immediate attention</p>
+                    <a class="text-error font-bold underline ml-md hover:opacity-80" href="#">View Now</a>
+                </div>
+                <button
+                    class="material-symbols-outlined text-on-error-container/60 hover:text-on-error-container transition-colors"
+                    onclick="document.getElementById('critical-alert').remove()">close</button>
+            </div>
+            <!-- Stats Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-lg">
+                <div class="bg-white p-lg rounded-xl border border-outline-variant card-shadow flex flex-col gap-sm">
+                    <p class="text-on-surface-variant font-label-md">Total Assigned</p>
+                    <div class="flex items-baseline gap-sm">
+                        <span class="font-headline-md text-on-surface">42</span>
+                        <span class="text-green-600 text-[12px] font-medium">+4 this week</span>
+                    </div>
+                </div>
+                <div class="bg-white p-lg rounded-xl border border-outline-variant card-shadow flex flex-col gap-sm">
+                    <p class="text-on-surface-variant font-label-md">Pending</p>
+                    <div class="flex items-baseline gap-sm">
+                        <span class="font-headline-md text-secondary">12</span>
+                        <span class="text-on-surface-variant text-[12px] font-medium">Ongoing cases</span>
+                    </div>
+                </div>
+                <div class="bg-white p-lg rounded-xl border border-outline-variant card-shadow flex flex-col gap-sm">
+                    <p class="text-on-surface-variant font-label-md">Resolved This Week</p>
+                    <div class="flex items-baseline gap-sm">
+                        <span class="font-headline-md text-green-600">8</span>
+                        <span class="text-green-600 text-[12px] font-medium">85% efficiency</span>
+                    </div>
+                </div>
+                <div class="bg-white p-lg rounded-xl border border-outline-variant card-shadow flex flex-col gap-sm">
+                    <p class="text-on-surface-variant font-label-md">Avg Resolution Time</p>
+                    <div class="flex items-baseline gap-sm">
+                        <span class="font-headline-md text-on-surface">3.2</span>
+                        <span class="text-on-surface-variant text-[12px] font-medium">Days</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Complaints Table Container -->
+            <div class="bg-white rounded-xl border border-outline-variant card-shadow overflow-hidden">
+                <div class="p-lg border-b border-outline-variant flex justify-between items-center">
+                    <h2 class="font-headline-sm text-on-surface">Assigned Complaints</h2>
+                    <div class="flex gap-md">
+                        <button
+                            class="flex items-center gap-sm px-md py-sm border border-outline-variant rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors">
+                            <span class="material-symbols-outlined text-[20px]">filter_list</span>
+                            <span class="font-label-md">Filter</span>
+                        </button>
+                        <button
+                            class="flex items-center gap-sm px-md py-sm border border-outline-variant rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors">
+                            <span class="material-symbols-outlined text-[20px]">download</span>
+                            <span class="font-label-md">Export</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="bg-surface-container-low text-on-surface-variant">
+                                <th class="p-md font-label-md border-b border-outline-variant">Complaint ID</th>
+                                <th class="p-md font-label-md border-b border-outline-variant">Category</th>
+                                <th class="p-md font-label-md border-b border-outline-variant">Citizen Name</th>
+                                <th class="p-md font-label-md border-b border-outline-variant">District</th>
+                                <th class="p-md font-label-md border-b border-outline-variant">Priority</th>
+                                <th class="p-md font-label-md border-b border-outline-variant">Status</th>
+                                <th class="p-md font-label-md border-b border-outline-variant">Days Pending</th>
+                                <th class="p-md font-label-md border-b border-outline-variant text-right">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-outline-variant">
+                            <!-- Critical Row -->
+                            <tr class="hover:bg-surface-container-lowest transition-colors group">
+                                <td class="p-md font-label-md text-primary">#DL-2026-00451</td>
+                                <td class="p-md text-body-sm text-on-surface">Water Supply</td>
+                                <td class="p-md text-body-sm text-on-surface">Anjali Singh</td>
+                                <td class="p-md text-body-sm text-on-surface">South Delhi</td>
+                                <td class="p-md">
+                                    <span
+                                        class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-error-container text-error">CRITICAL</span>
+                                </td>
+                                <td class="p-md">
+                                    <div class="flex items-center gap-sm">
+                                        <div class="w-2 h-2 rounded-full bg-secondary-container"></div>
+                                        <span class="text-body-sm text-on-surface-variant">In Progress</span>
+                                    </div>
+                                </td>
+                                <td class="p-md text-body-sm text-error font-medium">2 days</td>
+                                <td class="p-md text-right">
+                                    <button
+                                        class="px-md py-sm bg-primary text-white font-label-md rounded-lg hover:bg-primary-container transition-all shadow-sm">View</button>
+                                </td>
+                            </tr>
+                            <!-- High Row -->
+                            <tr class="hover:bg-surface-container-lowest transition-colors">
+                                <td class="p-md font-label-md text-primary">#DL-2026-00458</td>
+                                <td class="p-md text-body-sm text-on-surface">Pipe Leakage</td>
+                                <td class="p-md text-body-sm text-on-surface">Vikram Mehta</td>
+                                <td class="p-md text-body-sm text-on-surface">New Delhi</td>
+                                <td class="p-md">
+                                    <span
+                                        class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-orange-100 text-orange-700">HIGH</span>
+                                </td>
+                                <td class="p-md">
+                                    <div class="flex items-center gap-sm">
+                                        <div class="w-2 h-2 rounded-full bg-outline"></div>
+                                        <span class="text-body-sm text-on-surface-variant">Pending</span>
+                                    </div>
+                                </td>
+                                <td class="p-md text-body-sm text-on-surface-variant">4 days</td>
+                                <td class="p-md text-right">
+                                    <button
+                                        class="px-md py-sm border border-primary text-primary font-label-md rounded-lg hover:bg-primary-container/10 transition-all">View</button>
+                                </td>
+                            </tr>
+                            <!-- Normal Row -->
+                            <tr class="hover:bg-surface-container-lowest transition-colors">
+                                <td class="p-md font-label-md text-primary">#DL-2026-00462</td>
+                                <td class="p-md text-body-sm text-on-surface">Billing Issue</td>
+                                <td class="p-md text-body-sm text-on-surface">Rahul Sharma</td>
+                                <td class="p-md text-body-sm text-on-surface">Dwarka</td>
+                                <td class="p-md">
+                                    <span
+                                        class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-secondary-fixed text-secondary">NORMAL</span>
+                                </td>
+                                <td class="p-md">
+                                    <div class="flex items-center gap-sm">
+                                        <div class="w-2 h-2 rounded-full bg-secondary-container"></div>
+                                        <span class="text-body-sm text-on-surface-variant">In Progress</span>
+                                    </div>
+                                </td>
+                                <td class="p-md text-body-sm text-on-surface-variant">1 day</td>
+                                <td class="p-md text-right">
+                                    <button
+                                        class="px-md py-sm border border-primary text-primary font-label-md rounded-lg hover:bg-primary-container/10 transition-all">View</button>
+                                </td>
+                            </tr>
+                            <!-- High Row 2 -->
+                            <tr class="hover:bg-surface-container-lowest transition-colors">
+                                <td class="p-md font-label-md text-primary">#DL-2026-00465</td>
+                                <td class="p-md text-body-sm text-on-surface">Water Contamination</td>
+                                <td class="p-md text-body-sm text-on-surface">Priya Kapur</td>
+                                <td class="p-md text-body-sm text-on-surface">Rohini</td>
+                                <td class="p-md">
+                                    <span
+                                        class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-orange-100 text-orange-700">HIGH</span>
+                                </td>
+                                <td class="p-md">
+                                    <div class="flex items-center gap-sm">
+                                        <div class="w-2 h-2 rounded-full bg-outline"></div>
+                                        <span class="text-body-sm text-on-surface-variant">Pending</span>
+                                    </div>
+                                </td>
+                                <td class="p-md text-body-sm text-on-surface-variant">3 days</td>
+                                <td class="p-md text-right">
+                                    <button
+                                        class="px-md py-sm border border-primary text-primary font-label-md rounded-lg hover:bg-primary-container/10 transition-all">View</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div
+                    class="p-md border-t border-outline-variant bg-surface-container-lowest flex justify-between items-center px-lg">
+                    <p class="text-body-sm text-on-surface-variant">Showing 1-4 of 42 assigned complaints</p>
+                    <div class="flex gap-sm">
+                        <button
+                            class="p-sm text-on-surface-variant hover:bg-surface-container-low disabled:opacity-30 rounded-lg"
+                            disabled="">
+                            <span class="material-symbols-outlined">chevron_left</span>
+                        </button>
+                        <button class="p-sm text-on-surface-variant hover:bg-surface-container-low rounded-lg">
+                            <span class="material-symbols-outlined">chevron_right</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <!-- Footer -->
+        <footer
+            class="w-full py-lg px-lg mt-auto border-t border-outline-variant bg-white flex flex-col md:flex-row justify-between items-center gap-md">
+            <div class="flex items-center gap-sm">
+                <span class="font-headline-sm text-on-surface">Samadhan</span>
+                <span class="text-body-sm text-on-surface-variant">| © 2024 Government of Delhi. All rights
+                    reserved.</span>
+            </div>
+            <div class="flex gap-lg">
+                <a class="text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy
+                    Policy</a>
+                <a class="text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Contact
+                    Support</a>
+                <a class="text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Terms of
+                    Service</a>
+            </div>
+        </footer>
+    </div>
+    <script>
+        // Simple micro-interactions
+        document.querySelectorAll('.sidebar-nav-item').forEach(item => {
+            item.addEventListener('click', (e) => {
+                document.querySelectorAll('.sidebar-nav-item, .sidebar-active').forEach(i => {
+                    i.classList.remove('sidebar-active', 'bg-primary', 'text-white', 'shadow-sm');
+                    i.classList.add('sidebar-nav-item', 'text-on-surface-variant');
+                });
+                item.classList.add('sidebar-active', 'text-white', 'shadow-sm');
+                item.classList.remove('sidebar-nav-item', 'text-on-surface-variant');
+            });
+        });
+    </script>
+</body>
+
+</html>

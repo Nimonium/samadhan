@@ -1,0 +1,12 @@
+FROM node:20-alpine
+WORKDIR /app
+
+# Copy package config and install dependencies
+COPY package.json package-lock.json ./
+RUN npm ci
+
+# Copy all the source code (we use tsx to run the worker directly)
+COPY . .
+
+# Run the worker process
+CMD ["npx", "tsx", "src/worker/worker.ts"]
